@@ -10,23 +10,23 @@
 # @param {ListNode} l2
 # @return {ListNode}
 def merge_two_lists(l1, l2)
-	main_list = []
-
-	# while i < l1.length || k < l2.length
-	#     #リストの要素順に比較
-	#     if l1(i) < l2(k)
-	#         main_list.push(l1(i))
-	#         i += 1
-	#     elsif l1(i) > l2(k)
-	#         main_list.push(l2(k))
-	#         k += 1
-	#     elsif l1(i) == l2(k)
-	#         main_list.push(l2(k))
-	#         main_list.push(l1(i))
-	#         i += 1
-	#         k += 1
-	#     end
-	#     return main_list
-	# end
-
+	l3 = []
+	while l1 && l2
+		if l1.val <= l2.val
+			l3.push(l1.val)
+			l1 = l1.next
+		else
+			l3.push(l2.val)
+			l2 = l2.next
+		end
+	end
+	if !l2.nil?
+		l3.push(l2.val)
+		l2 = l2.next
+	end
+	if !l1.nil?
+		l3.push(l1.val)
+		l1 = l1.next
+	end
+    return l3
 end
